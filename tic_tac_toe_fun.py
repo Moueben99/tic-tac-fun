@@ -148,10 +148,39 @@ class Intel_Art(Application):
         self.tracer(loc)
 
     def ai_analyser(self):
-        # Analyse si IA peut gagner au prochain coup
-        # Joueur B est toujours l'IA
-        # Changement du moteur de vérifications.
+        #Analyse si IA peut gagner au prochain coup
+        #Joueur B est toujours l'IA
+        #Changement du moteur de vérifications.
         trouve = False
+        if not self.premierTour:
+            for i in range(0, 10):
+                for position in possibilites:
+                    #Si la case permet de gagner, la case est inoccupée ET l'IA n'a pas encore joué
+                    if (
+                            self.boss.posB | 2 ** i) & position == position and not self.boss.posA & 2 ** i and not self.boss.posB & 2 ** i and not trouve:
+                        self.tracer(i + 1)
+                        trouve = True
+            for i in range(0, 10):
+                #Vérifie si l'adversaire peut gagner
+                for position in possibilites:
+                    #Si la case permettrait à l'adversaire de gagner, la case est inoccupée et l'IA n'a pas encore joué
+                    if (
+                            self.boss.posA | 2 ** i) & position == position and not self.boss.posB & 2 ** i and not self.boss.posA & 2 ** i and not trouve:
+                        self.tracer(i + 1)
+                        trouve = True
+            #S'il ne peut pas gagner ou si bloquer on fait
+            if not trouve:
+                self.trouverFourchette()
+        else:
+            #Au premier tour, deux possibilités valides: le centre ou le cas échéant, un coin.
+            if self.boss.posA & 16:
+                self.tracer(1)
+            else:
+                self.tracer(5)
+            self.premierTour = False
+
+            #Finalement, vérifier si il y a victoire
+        self.boss.verif_gagner()
 
     def tracer(self, case):
         if case == 1:
