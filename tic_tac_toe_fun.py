@@ -61,6 +61,11 @@ class Application(tkinter.Tk):
         """Quitte le jeu"""
         self.destroy()
 
+    def tracer_croix(self, x, y):
+        """Trace une croix dans le Canvas principal"""
+        self.can1.create_line(x - 35, y - 35, x + 35, y + 35, width=5, fill='blue')
+        self.can1.create_line(x - 35, y + 35, x + 35, y - 35, width=5, fill='blue')
+
         
 
         
