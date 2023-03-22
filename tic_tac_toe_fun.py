@@ -57,8 +57,11 @@ class Application(tkinter.Tk):
         self.recommencer()
         self.score('r')
 
+    def quitter(self, event):
+        """Quitte le jeu"""
+        self.destroy()
 
-
+        
 
         
 class Intel_Art(Application):
