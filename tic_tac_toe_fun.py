@@ -121,15 +121,15 @@ class Application(tkinter.Tk):
         self.l1.configure(text='Score : \n Vous ' + str(self.ja_score) + ' -  Ordi ' + str(self.jb_score))
 
 
-
-
-
 class Intel_Art(Application):
     """Definition de l'intelligence artificelle"""
     def __init__(self, boss):
         self.boss = boss
-        
-   
+
+    def reset(self):
+        self.premierTour = True
+
+    
    
    
    
