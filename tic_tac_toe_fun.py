@@ -107,7 +107,7 @@ class Application(tkinter.Tk):
 
 
     def verif_gagner(self):
-        """Vérifie si un joueur a gagné"""
+        """Vérifie que le joueur a gagné"""
         self.winner = None
 
 
