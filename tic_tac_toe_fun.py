@@ -110,11 +110,20 @@ class Application(tkinter.Tk):
         """Vérifie que le joueur a gagné"""
         self.winner = None
 
+    def score(self, joueur):
+        if joueur == 'a':
+            self.ja_score = self.ja_score + 1
+        elif joueur == 'b':
+            self.jb_score = self.jb_score + 1
+        elif joueur == 'r':
+            self.jb_score = 0
+            self.ja_score = 0
+        self.l1.configure(text='Score : \n Vous ' + str(self.ja_score) + ' -  Ordi ' + str(self.jb_score))
 
 
-        
 
-        
+
+
 class Intel_Art(Application):
     """Definition de l'intelligence artificelle"""
     def __init__(self, boss):
