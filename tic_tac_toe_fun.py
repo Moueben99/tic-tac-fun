@@ -142,6 +142,29 @@ class Intel_Art(Application):
         # Changement du moteur de vérifications.
         trouve = False
 
+    def tracer(self, case):
+        if case == 1:
+            self.boss.tracer_rond(55, 55)
+        elif case == 2:
+            self.boss.tracer_rond(155, 55)
+        elif case == 3:
+            self.boss.tracer_rond(255, 55)
+        elif case == 4:
+            self.boss.tracer_rond(55, 155)
+        elif case == 5:
+            self.boss.tracer_rond(155, 155)
+        elif case == 6:
+            self.boss.tracer_rond(255, 155)
+        elif case == 7:
+            self.boss.tracer_rond(55, 255)
+        elif case == 8:
+            self.boss.tracer_rond(155, 255)
+        elif case == 9:
+            self.boss.tracer_rond(255, 255)
+        self.boss.posB += 2 ** (case - 1)
+        self.boss.posNULL -= 2 ** (case - 1)
+
+        
 
    
    
