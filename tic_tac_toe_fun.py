@@ -104,6 +104,30 @@ class Application(tkinter.Tk):
         # - + - + -
         # 64|128|256
 
+        i = 0
+        if self.winner == None:
+            if event.x > 0 and event.x < 100:
+                if event.y > 0 and event.y < 100:
+                    i = 1
+                    self.xtrace = 55
+                    self.ytrace = 55
+                if event.y > 100 and event.y < 200:
+                    i = 4
+                    self.xtrace = 55
+                    self.ytrace = 155
+                if event.y > 200 and event.y < 300:
+                    i = 7
+                    self.xtrace = 55
+                    self.ytrace = 255
+
+            else:
+                print("Coup impossible")
+                return 1
+
+            self.verif_gagner()
+        else:
+            self.recommencer()
+
 
 
     def verif_gagner(self):
