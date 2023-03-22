@@ -88,7 +88,24 @@ class Application(tkinter.Tk):
         elif position == 84:
             self.can1.create_line(10, 290, 290, 10, width=10, fill='green')
 
-            
+    def analyser_pos_click(self, event):
+        """Analyse la case sélectionnée par le joueur"""
+        # Detection de la position de la souris dans le Canvas en fonction des cases
+        # 1 | 2 | 3
+        # - + - + -
+        # 4 | 5 | 6
+        # - + - + -
+        # 7 | 8 | 9.
+
+        # Valeurs de chacune des cases:
+        # 1 | 2 | 4
+        # - + - + -
+        # 8 | 16|32
+        # - + - + -
+        # 64|128|256
+
+
+        
 
         
 class Intel_Art(Application):
