@@ -129,7 +129,13 @@ class Intel_Art(Application):
     def reset(self):
         self.premierTour = True
 
-    
+    def trouverFourchette(self):
+        posB = self.boss.posB
+        posA = self.boss.posA
+        posNULL = self.boss.posNULL
+        loc = 1
+        trouve = False
+        
    
    
    
