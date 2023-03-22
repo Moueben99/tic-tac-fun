@@ -22,13 +22,22 @@ class Application(tkinter.Tk):
         self.recommencer()
         self.can1.bind("<Button-1>", self.analyser_pos_click)#Cliquer hors de la zone de jeu I.E. Bouton quitter n'activera pas le jeu
         self.bind("<Escape>", self.quitter)
-        self.b1 = tkinter.Button(self, text='Réinitialiser', command=self.recommencer2)#Changement du libelle du bouton pour un terme moins ambigu
+        self.b1 = tkinter.Button(self, text='Réinitialiser', command=self.recommencer2)#Changement du libelle du bouton
         self.b1.pack(side = 'left', padx = 5)
         self.b2 = tkinter.Button(self, text='Quitter', command=self.destroy)
         self.b2.pack(side = 'right', padx = 5)
         self.pos = [0] * 10
         self.ja_score = 0
         self.jb_score = 0
+
+    def tracer_plateau(self):
+        """Trace du plateau"""
+        self.can1.create_line(105, 10, 105, 290, width=10)
+        self.can1.create_line(205, 10, 205, 290, width=10)
+        self.can1.create_line(10, 105, 290, 105, width=10)
+        self.can1.create_line(10, 205, 290, 205, width=10)
+
+    
         
         
         
