@@ -105,6 +105,13 @@ class Application(tkinter.Tk):
         # 64|128|256
 
 
+
+    def verif_gagner(self):
+        """Vérifie si un joueur a gagné"""
+        self.winner = None
+
+
+
         
 
         
