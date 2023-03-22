@@ -51,7 +51,13 @@ class Application(tkinter.Tk):
         self.posB = 0
         self.posNULL = 511
         self.winner = None
-        
+
+    def recommencer2(self):
+        """Réinitialise le score"""
+        self.recommencer()
+        self.score('r')
+
+
 
 
         
