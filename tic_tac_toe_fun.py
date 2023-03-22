@@ -164,15 +164,14 @@ class Intel_Art(Application):
         self.boss.posB += 2 ** (case - 1)
         self.boss.posNULL -= 2 ** (case - 1)
 
-        
+    def rotate(self, entree):
+        sortie = 0
+        for i in range(9):
+            if entree & 2 ** i:
+                sortie += 2 ** ((i + 1) * 3 % 10 - 1)
+        return sortie
 
-   
-   
-   
-   
-   
-   
-        
+
 if __name__ == '__main__':
     fen = Application()
     fen.mainloop()
