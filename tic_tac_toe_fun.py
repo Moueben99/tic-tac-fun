@@ -70,7 +70,25 @@ class Application(tkinter.Tk):
         """Trace un rond dans la Canvas principal"""
         self.can1.create_oval(x - 35, y - 35, x + 35, y + 35, outline='red', width=5)
 
-        
+    def tracer_ligne(self, position):
+        if position == 7:
+            self.can1.create_line(10, 55, 290, 55, width=10, fill='green')
+        elif position == 56:
+            self.can1.create_line(10, 155, 290, 155, width=10, fill='green')
+        elif position == 448:
+            self.can1.create_line(10, 255, 290, 255, width=10, fill='green')
+        elif position == 73:
+            self.can1.create_line(55, 10, 55, 290, width=10, fill='green')
+        elif position == 146:
+            self.can1.create_line(155, 10, 155, 290, width=10, fill='green')
+        elif position == 292:
+            self.can1.create_line(255, 10, 255, 290, width=10, fill='green')
+        elif position == 273:
+            self.can1.create_line(10, 10, 290, 290, width=10, fill='green')
+        elif position == 84:
+            self.can1.create_line(10, 290, 290, 10, width=10, fill='green')
+
+            
 
         
 class Intel_Art(Application):
