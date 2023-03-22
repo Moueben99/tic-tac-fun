@@ -43,7 +43,7 @@ class Application(tkinter.Tk):
         self.ai.reset()
         self.joueura = 'on'
         self.joueurb = 'off'
-        self.title(""".TicTac!'s Fun""")
+        self.title("""Tic Tac Fun !""")
         self.can1.delete(tkinter.ALL)
         self.tracer_plateau()
         self.pos = [0] * 10
@@ -135,6 +135,17 @@ class Intel_Art(Application):
         posNULL = self.boss.posNULL
         loc = 1
         trouve = False
+        for iteration in range(4):  #Il faut tourner 4 fois pour revenir au plateau initial
+            posB, posA, posNULL, loc = self.rotate(posB), self.rotate(posA), self.rotate(posNULL), self.rotate(loc)
+            for a, b, null, dest in fourchettes:
+                if (posA & a) == a and (posB & b) == b and (posNULL & null) == null and not trouve:
+                    loc = dest
+                    trouve = True
+        loc = int(log(loc, 2)) + 1  #Ramène la valeur de la case à son index
+        if not trouve:  #Prendre la première case vide s'il n'y a pas de fourchette
+            while not ((2 ** (loc - 1)) & posNULL):
+                loc += 1
+        self.tracer(loc)
 
     def ai_analyser(self):
         # Analyse si IA peut gagner au prochain coup
