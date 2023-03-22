@@ -135,7 +135,14 @@ class Intel_Art(Application):
         posNULL = self.boss.posNULL
         loc = 1
         trouve = False
-        
+
+    def ai_analyser(self):
+        # Analyse si IA peut gagner au prochain coup
+        # Joueur B est toujours l'IA
+        # Changement du moteur de vérifications.
+        trouve = False
+
+
    
    
    
