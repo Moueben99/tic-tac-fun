@@ -37,10 +37,23 @@ class Application(tkinter.Tk):
         self.can1.create_line(10, 105, 290, 105, width=10)
         self.can1.create_line(10, 205, 290, 205, width=10)
 
-    
+    def recommencer(self):
+        """Réinitialise la partie"""
+        self.winner = None  #Initialisation du gagnant
+        self.ai.reset()
+        self.joueura = 'on'
+        self.joueurb = 'off'
+        self.title(""".TicTac!'s Fun""")
+        self.can1.delete(tkinter.ALL)
+        self.tracer_plateau()
+        self.pos = [0] * 10
+        self.posA = 0
+        self.posB = 0
+        self.posNULL = 511
+        self.winner = None
         
-        
-        
+
+
         
 class Intel_Art(Application):
     """Definition de l'intelligence artificelle"""
