@@ -66,6 +66,10 @@ class Application(tkinter.Tk):
         self.can1.create_line(x - 35, y - 35, x + 35, y + 35, width=5, fill='blue')
         self.can1.create_line(x - 35, y + 35, x + 35, y - 35, width=5, fill='blue')
 
+    def tracer_rond(self, x, y):
+        """Trace un rond dans la Canvas principal"""
+        self.can1.create_oval(x - 35, y - 35, x + 35, y + 35, outline='red', width=5)
+
         
 
         
