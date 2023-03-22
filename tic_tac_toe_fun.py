@@ -32,10 +32,10 @@ class Application(tkinter.Tk):
 
     def tracer_plateau(self):
         """Trace du plateau"""
-        self.can1.create_line(105, 10, 105, 290, width=10)
-        self.can1.create_line(205, 10, 205, 290, width=10)
-        self.can1.create_line(10, 105, 290, 105, width=10)
-        self.can1.create_line(10, 205, 290, 205, width=10)
+        self.can1.create_line(105, 10, 105, 290, width=10, fill='yellow')
+        self.can1.create_line(205, 10, 205, 290, width=10, fill='yellow')
+        self.can1.create_line(10, 105, 290, 105, width=10, fill='yellow')
+        self.can1.create_line(10, 205, 290, 205, width=10, fill='yellow')
 
     def recommencer(self):
         """Réinitialise la partie"""
@@ -109,6 +109,26 @@ class Application(tkinter.Tk):
     def verif_gagner(self):
         """Vérifie que le joueur a gagné"""
         self.winner = None
+        #Definition des 8 possibilites de gagner et tracer d'une grand ligne si gagner
+        for ver in possibilites:
+            if self.posA & ver == ver:
+                self.winner, pos = 'A', ver
+            elif self.posB & ver == ver:
+                self.winner, pos = 'B', ver
+        if self.posNULL == 0:
+            self.winner = 'Nul'
+        if self.winner != None and self.winner != 'Nul':
+            self.tracer_ligne(pos)
+
+        if self.winner != None:
+            if self.winner == 'A':
+                self.title('Joueur A Win !!')
+                self.score('a')
+            elif self.winner == 'B':
+                self.title('Joueur B Win !!')
+                self.score('b')
+            elif self.winner == 'Nul':
+                self.title('Match Nul')
 
     def score(self, joueur):
         if joueur == 'a':
