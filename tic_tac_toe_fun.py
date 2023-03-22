@@ -119,16 +119,58 @@ class Application(tkinter.Tk):
                     i = 7
                     self.xtrace = 55
                     self.ytrace = 255
-
+            elif event.x > 100 and event.x < 200:
+                if event.y > 0 and event.y < 100:
+                    i = 2
+                    self.xtrace = 155
+                    self.ytrace = 55
+                if event.y > 100 and event.y < 200:
+                    i = 5
+                    self.xtrace = 155
+                    self.ytrace = 155
+                if event.y > 200 and event.y < 300:
+                    i = 8
+                    self.xtrace = 155
+                    self.ytrace = 255
+            elif event.x > 200 and event.x < 300:
+                if event.y > 0 and event.y < 100:
+                    i = 3
+                    self.xtrace = 255
+                    self.ytrace = 55
+                if event.y > 100 and event.y < 200:
+                    i = 6
+                    self.xtrace = 255
+                    self.ytrace = 155
+                if event.y > 200 and event.y < 300:
+                    i = 9
+                    self.xtrace = 255
+                    self.ytrace = 255
+            if self.joueura == 'on' and self.posNULL & 2 ** (i - 1):
+                self.posA = self.posA + 2 ** (i - 1)
+                self.posNULL -= 2 ** (i - 1)
+                self.tracer_croix(self.xtrace, self.ytrace)
+                if self.ai_enabled != 'on':
+                    self.joueura = 'off'
+                    self.joueurb = 'on'
+                if self.ai_enabled == 'on':
+                    self.verif_gagner()
+                    if self.winner != None:
+                        return 1
+                    self.ai.ai_analyser()
+                    return 1
+            elif (self.joueurb == 'on' and self.posNULL & 2 ** (i - 1) and self.ai_enabled != 'on'):
+                if self.ai_enabled != 1:
+                    self.posB += 2 ** (i - 1)
+                    self.posNULL -= 2 ** (i - 1)
+                    self.tracer_rond(self.xtrace, self.ytrace)
+                    self.joueura = 'on'
+                    self.joueurb = 'off'
             else:
                 print("Coup impossible")
                 return 1
-
             self.verif_gagner()
         else:
             self.recommencer()
-
-
 
     def verif_gagner(self):
         """Vérifie que le joueur a gagné"""
