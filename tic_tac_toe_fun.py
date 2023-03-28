@@ -188,10 +188,10 @@ class Application(tkinter.Tk):
 
         if self.winner != None:
             if self.winner == 'A':
-                self.title('Joueur A Win !!')
+                self.title('Le Joueur King a gagné !!')
                 self.score('a')
             elif self.winner == 'B':
-                self.title('Joueur B Win !!')
+                self.title('Le Joueur Kong a gagné !!')
                 self.score('b')
             elif self.winner == 'Nul':
                 self.title('Match Nul')
